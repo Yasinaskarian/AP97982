@@ -22,7 +22,7 @@ namespace A1S3.Tests
         [TestMethod()]
         public void Q1_GetWordsTest()
         {
-            string path = @".\test.txt";
+            string path = @"test.txt";
             string[] word =File.ReadAllLines(path) ;
             CollectionAssert.Equals(word, Program.Q1_GetWords(path));
         }
