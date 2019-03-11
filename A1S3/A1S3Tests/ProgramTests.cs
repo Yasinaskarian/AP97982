@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using A1S3;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,7 @@ namespace A1S3.Tests
         public void Q1_GetWordsTest()
         {
             string path = @".\test.txt";
-            string[] word = new string[4] { "Hi", "bye", "good", "c#" };
+            string[] word =File.ReadAllLines(path) ;
             CollectionAssert.Equals(word, Program.Q1_GetWords(path));
         }
 
