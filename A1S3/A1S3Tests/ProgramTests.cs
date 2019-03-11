@@ -22,9 +22,9 @@ namespace A1S3.Tests
         [TestMethod()]
         public void Q1_GetWordsTest()
         {
-            string path = @"test.txt";
-            string[] word =File.ReadAllLines(path) ;
-            CollectionAssert.Equals(word, Program.Q1_GetWords(path));
+            File.WriteAllLines(Path.GetTempFileName(), new string[] { "post1", "post2", "post3" });
+            string[] word = new string[3] { "post1", "post2", "post3" };
+            CollectionAssert.Equals(word, Program.Q1_GetWords(Path.GetTempFileName()));
         }
 
         [TestMethod()]
