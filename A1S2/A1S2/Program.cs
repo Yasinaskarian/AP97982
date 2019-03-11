@@ -11,7 +11,7 @@ namespace A1S2
     {
         public static void Main(string[] args)
         {
-            string di = @"E:\c#\New folder (2)";
+            string di = args[0];
             FileInfoLength(di);
         }
         public static void FileInfoLength (string FilePath)
