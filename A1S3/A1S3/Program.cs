@@ -13,16 +13,16 @@ namespace A1S3
         {
             string[] posWords = Q1_GetWords(@"..\..\TwitterData\Words\positive.txt");
             string[] negWords = Q1_GetWords(@"..\..\TwitterData\Words\negative.txt");
-            string[] file= Directory.GetFiles(@"..\..\TwitterData\Tweets");
+            string[] file = Directory.GetFiles(@"..\..\TwitterData\Tweets");
             string[] AveOfLoadOfTweetOfPeople = new string[file.Length];
             string[] NameOfTweets = new string[file.Length];
-            for (int i=0;i<file.Length;i++)
+            for (int i = 0; i < file.Length; i++)
             {
                 string[] tweets = File.ReadAllLines(file[i]);
                 double AveOfLoadOfTweet = Q5_GetAvgPopChargeOfTweets(tweets, negWords, posWords);
-                 AveOfLoadOfTweetOfPeople[i] = AveOfLoadOfTweet.ToString();
+                AveOfLoadOfTweetOfPeople[i] = AveOfLoadOfTweet.ToString();
                 NameOfTweets[i] = Path.GetFileNameWithoutExtension(file[i]);
-            
+
             }
             string[] result = new string[file.Length];
             for (int i = 0; i < file.Length; i++)
@@ -30,7 +30,7 @@ namespace A1S3
                 result[i] = $"{NameOfTweets[i]}:{AveOfLoadOfTweetOfPeople[i]}";
             }
 
-                File.WriteAllLines(@"C:\git\AP97982\A1S3\A1S3\result.txt", result);
+            File.WriteAllLines(@"..\..\result.txt", result);
         }
 
         public static int Q4_GetPopChargeOfTweet(string tweet, string negwords, string poswords)
@@ -40,36 +40,36 @@ namespace A1S3
 
         public static string[] Q1_GetWords(string path)
         {
-            string[] word = File.ReadAllLines(path); 
+            string[] word = File.ReadAllLines(path);
             return word;
         }
-        public static bool Q2_IsInWords (string[] words ,string word)
+        public static bool Q2_IsInWords(string[] words, string word)
         {
-            for(int i=0;i<words.Length; i++)
+            for (int i = 0; i < words.Length; i++)
             {
-                if(words[i] == word)
+                if (words[i] == word)
                 {
                     return true;
                 }
             }
             return false;
         }
-         public static string[] Q3_GetWordsOfTweet(string tweet)
+        public static string[] Q3_GetWordsOfTweet(string tweet)
         {
-            string[] words = tweet.Split('!', '@', '#', '?', ' ', ':', '$', '+', '-', '.', '،', '%','^','&','*',')','(','_');
+            string[] words = tweet.Split('!', '@', '#', '?', ' ', ':', '$', '+', '-', '.', '،', '%', '^', '&', '*', ')', '(', '_');
             return words;
         }
-        public static int Q4_GetPopChargeOfTweet(string tweet,string[] posWords,string[] negWords)
+        public static int Q4_GetPopChargeOfTweet(string tweet, string[] posWords, string[] negWords)
         {
             int LoadOfTweet = 0;
 
             string[] words = Q3_GetWordsOfTweet(tweet);
-            for(int i =0; i < words.Length; i++)
-            { 
-                    if (Q2_IsInWords(posWords,words[i])==true)
-                    {
-                        LoadOfTweet++;
-                    }
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (Q2_IsInWords(posWords, words[i]) == true)
+                {
+                    LoadOfTweet++;
+                }
             }
             for (int i = 0; i < words.Length; i++)
             {
@@ -80,13 +80,13 @@ namespace A1S3
             }
             return LoadOfTweet;
         }
-        public static double Q5_GetAvgPopChargeOfTweets(string[] tweets, string[] negWords,string[] posWords)
+        public static double Q5_GetAvgPopChargeOfTweets(string[] tweets, string[] negWords, string[] posWords)
         {
 
             double LoadOfTweet = 0;
             foreach (string tweet in tweets)
             {
-                double s= (double)Q4_GetPopChargeOfTweet(tweet, posWords, negWords);
+                double s = (double)Q4_GetPopChargeOfTweet(tweet, posWords, negWords);
                 LoadOfTweet = s + LoadOfTweet;
             }
             double AveOfLoadOfTweet = LoadOfTweet / tweets.Length;
