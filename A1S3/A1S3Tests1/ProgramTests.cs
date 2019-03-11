@@ -21,8 +21,8 @@ namespace A1S3.Tests
         [TestMethod()]
         public void Q1_GetWordsTest()
         {
-            string path = @"E:\c#\New folder\test.txt";
-            string[] word = File.ReadAllLines(path);
+            string path = @".\test.txt";
+            string[] word = new string[4] { "Hi", "bye", "good", "c#" };
              CollectionAssert.Equals(word, Program.Q1_GetWords(path));
         }
 

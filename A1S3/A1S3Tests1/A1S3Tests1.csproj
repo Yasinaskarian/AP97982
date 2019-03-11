@@ -68,6 +68,9 @@
       <Name>A1S3</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="test.txt" />
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
