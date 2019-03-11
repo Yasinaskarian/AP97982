@@ -1,0 +1,20 @@
+AfsharMahnaz:mahnaz afshar:shakhsi:0.7
+alimotahari_ir:ali motahari:siasi:-0.2
+azarijahromi:mohammad javad azari jahromi:siasi:0.6
+BBCBastani:Hossein Bastani:siasi:0.2
+BehnoudMasoud:masoud behnoud:siasi:0.4
+Eshaq_jahangiri:eshagh jahangiri:siasi:-0.7
+HaddadAdel_ir:hadad adel:siasi:0.1
+hesamodin1:hesamedin ashan:siasi:0.2
+ir_aref:mohammadreza aref:siasi:0.6
+ir_rezaee:gholamhossein rezai:siasi:-0.7
+IsraelPersian:israel news:siasi:-0.4
+Jedaaal:ali alizade:siasi:0.1
+Khamenei_fa:ali khamenei:-0.3
+mah_sadeghi:0.168316831683168
+MohajeraniSayed:seyed ataollah mohajerani:siasi:0.1
+mostafatajzade:mostafa tajzadeh:siasi:-0.4
+Rouhani_ir:hassan rouhani:siasi:-0.3
+t_alidoosti:taraneh alidosti:shakhsi:0.6
+USAdarFarsi:USA tweets:siasi:-0.6
+ 
