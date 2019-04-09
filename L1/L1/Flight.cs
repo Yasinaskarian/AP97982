@@ -10,11 +10,17 @@ namespace ConsoleApp1
     {
         //Properties:
         //FlightID: string
+        public string ID;
         //Airline: Airline
+        public Airline Airline;
         //Capacity: int
+        public int Capacity;
         //Source: string
+        public string Source;
         //Destination: string
+        public string Destenation;
         //FlyDate: DateTime
+        public DateTime FlyDate;
 
 
         /// <summary>
@@ -26,16 +32,24 @@ namespace ConsoleApp1
         /// <param name="source"></param>
         /// <param name="dest"></param>
         /// <param name="dateTime"></param>
-        public Flight(string id, Airline airline, int capacity, string source, string dest,
-            DateTime dateTime)
+        public Flight(string id, Airline airline, int capacity, string source, string dest,DateTime dateTime)
         {
             //TODO
+            ID = id;
+            Airline = airline;
+            Capacity = capacity;
+            Source = source;
+            Destenation = dest;
+            FlyDate = dateTime;
+            DB.AddFlight(this);
         }
 
-        public bool IsFull()
+    public bool IsFull()
         {
             //TODO
-            throw new NotImplementedException();
+           if (Capacity == 0)
+               return true;
+         return false;
         }
     }
 }

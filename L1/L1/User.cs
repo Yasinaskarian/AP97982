@@ -36,7 +36,8 @@ namespace ConsoleApp1
         public void Reserve(Ticket ticket)
         {
             //TODO
-            throw new NotImplementedException();
+      
+           
         }
 
         /// <summary>
@@ -87,7 +88,7 @@ namespace ConsoleApp1
         /// <param name="source"></param>
         /// <param name="dest"></param>
         /// <returns></returns>
-        public List<Ticket> AirlineTickets(string source, string dest)
+        public List<Ticket> RouteTickets(string source, string dest)
         {
             throw new NotImplementedException();
         }
