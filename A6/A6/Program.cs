@@ -87,8 +87,6 @@ namespace A6
     public struct TypeForMaxStackOfDepth10
     {
         public TypeOfSize32768 T1;
-        //public TypeOfSize32768 T2;
-        //public TypeOfSize32768 T3;
         public TypeOfSize1024 T2;
         public TypeOfSize1024 T3;
         public TypeOfSize1024 T4;
@@ -111,33 +109,12 @@ namespace A6
     }
     public struct TypeForMaxStackOfDepth100
     {
-        //public TypeOfSize32768 T1;
-        //public TypeOfSize32768 T2;
-        //public TypeOfSize32768 T3;
+    
+        public TypeOfSize1024 T1;
         public TypeOfSize1024 T2;
         public TypeOfSize1024 T3;
         public TypeOfSize1024 T4;
         public TypeOfSize1024 T5;
-        public TypeOfSize1024 T6;
-        //public TypeOfSize1024 T7;
-        //public TypeOfSize1024 T8;
-        //public TypeOfSize1024 T9;
-        //public TypeOfSize1024 T10;
-        //public TypeOfSize125 T11;
-        //public TypeOfSize125 T12;
-        //public TypeOfSize125 T13;
-        //public TypeOfSize125 T14;
-        //public TypeOfSize125 T15;
-        //public TypeOfSize22 T16;
-        //public TypeOfSize22 T17;
-        //public TypeOfSize22 T161;
-        //public TypeOfSize22 T171;
-
-        //public byte B1;
-        //public byte B2;
-        //public byte B3;
-
-
     }
     public struct TypeForMaxStackOfDepth1000
     {
@@ -229,10 +206,7 @@ namespace A6
 
         public static void Main(string[] args)
         {
-            int x = 8;
-            int y = 16;
-            int z = 32;
-            Console.WriteLine(z|y);
+
         }
     }
 }
