@@ -17,17 +17,7 @@ namespace A3
             }
             get
             {
-                //int num = 0;
-                //char[] CharOfCity = this._name.ToCharArray();
-                //foreach(char s in CharOfCity)
-                //{
-                //    if (s > 0 || s<0)
-                //        num++;
-                //}
-                //if(num==0)
                     return this._name;
-                //else
-                ////throw new Exception("wrong city");
             }
         }
 

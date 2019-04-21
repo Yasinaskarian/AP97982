@@ -20,16 +20,16 @@ namespace A3
                 return this._products;
             }
         }
-        bool _IsDElivered;
+        bool _IsDelivered;
         public bool IsDelivered
         {
             set
             {
-                this._IsDElivered = value;
+                this._IsDelivered = value;
             }
             get
             {
-                return this._IsDElivered;
+                return this._IsDelivered;
             }
         }
 
