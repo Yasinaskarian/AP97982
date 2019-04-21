@@ -32,16 +32,16 @@ namespace A3
                 return this._city;
             }
         }
-        List<Order> _Oreders;
+        List<Order> _Orders;
         public List<Order> Orders
         {
             set
             {
-                this._Oreders = value;
+                this._Orders = value;
             }
             get
             {
-                return this._Oreders;
+                return this._Orders;
             }
         }
 
@@ -51,11 +51,11 @@ namespace A3
             City = city;
             Orders = orders;
         }
-
+ 
         public Product MostOrderedProduct()
         {
-            int Counter=0;
-            int MaxCounter = 0;
+            int counter=0;
+            int maxCounter = 0;
                 List<Product> product = new List<Product>();
             for (int i = 0; i < Orders.Count; i++)
             {
@@ -64,24 +64,23 @@ namespace A3
                     product.Add(Orders[i].Products[j]);
                 }
             }
-
-            Product MaxOreder = new Product("name",0);
+            Product maxOrder = new Product("name",0);
             for (int i = 0; i < product.Count; i++)
             {
-                Counter = 0;
+                counter = 0;
                 for(int j = i; j < product.Count; j++)
                 {
                     if (product[i].Name== product[j].Name)
-                        Counter++;
+                        counter++;
                 }
-                if (Counter > MaxCounter)
+                if (counter > maxCounter)
                 {
-                    MaxOreder = product[i];
-                    MaxCounter = Counter;
+                    maxOrder = product[i];
+                    maxCounter = counter;
                 }
             }
 
-            return MaxOreder;
+            return maxOrder;
         }
 
         public List<Order> UndeliveredOrders()

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,28 +39,27 @@ namespace A3
             Customers = customers;
         }
 
-
         public List<City> CitiesCustomersAreFrom()
         {
-            List<City> city=new List<City>();
-            int Counter = 0;
+            List<City> cities=new List<City>();
+            int counter = 0;
             for (int i = 0; i < Customers.Count; i++)
             {
-                for(int j = 0; j < city.Count; j++)
+                for(int j = 0; j < cities.Count; j++)
                 {
-                    Counter = 0;
-                    if (city[j] == Customers[i].City)
+                    counter = 0;
+                    if (cities[j] == Customers[i].City)// اینجا بررسی میکنیم که اگر چند نفر در یک شهر مشخص زندگی کنند  
                     {
-                        Counter++;
+                        counter++;
                     }
                 }
-                if (Counter == 0)
+                if (counter == 0)
                 {
-                    city.Add(Customers[i].City);
+                    cities.Add(Customers[i].City);
                 }
             }
 
-            return city;
+            return cities;
         }
 
         public List<Customer> CustomersFromCity(City city)
@@ -73,40 +72,37 @@ namespace A3
                     customer.Add(Customers[i]);
                 }
             }
-                
-
+     
             return customer;
         }
 
         public List<Customer> CustomersWithMostOrders()
         {
-            List<Customer> MaxCustemers = new List<Customer>();
-            List<Customer> MaxCustemers1 = new List<Customer>();
-            Customer TestCustemer ;
-            for (int i = 0; i < Customers.Count; i++)
-                MaxCustemers.Add(Customers[i]);
-            for(int i = 0; i < MaxCustemers.Count-2; i++)
-            {
-                for (int j = 0;  j < MaxCustemers.Count-2; j++)
+            List<Customer> ourCustomers = new List<Customer>();
+            List<Customer> maxCustomers = new List<Customer>();
+            Customer testCustomers ;
+            for (int i = 0; i < this.Customers.Count; i++)
+                ourCustomers.Add(this.Customers[i]);//اینجا مشتریامون رو ادد میکنیم
+            for(int i = 0; i < ourCustomers.Count-2; i++)
+            {//اینجا از روش بابل سورت مشتریامون رو از بیشترین به کمترین سفارش سورت میکنیم
+                for (int j = 0;  j < ourCustomers.Count-2; j++)
                 {
-                    if(MaxCustemers[j].Orders.Count< MaxCustemers[j+1].Orders.Count)
+                    if(ourCustomers[j].Orders.Count< ourCustomers[j+1].Orders.Count)
                     {
-                        TestCustemer = MaxCustemers[j+1];
-                        MaxCustemers[j+1] = MaxCustemers[j];
-                        MaxCustemers[j] = TestCustemer;
+                        testCustomers = ourCustomers[j+1];
+                        ourCustomers[j+1] = ourCustomers[j];
+                        ourCustomers[j] = testCustomers;
                     }
                 }
             }
-            for (int i = 0; i < MaxCustemers.Count ; i++)
-            {
-                if(MaxCustemers[0].Orders.Count == MaxCustemers[i].Orders.Count)
+            for (int i = 0; i < ourCustomers.Count ; i++)
+            {//اینجا احتمال اینکه چند مشتری بیشترین سفارش را داشته اند بررسی میکنیم
+                if(ourCustomers[0].Orders.Count == ourCustomers[i].Orders.Count)
                 {
-                    MaxCustemers1.Add(MaxCustemers[i]);
+                    maxCustomers.Add(ourCustomers[i]);
                 }
             }
-
-                
-            return MaxCustemers1;
+            return maxCustomers;
         }
     }
 }
