@@ -10,9 +10,6 @@ namespace A2
     {
         public static void Main(string[] args)
         {
-            int[] num1 = new int[] { 1, 2, 3 };
-            int[] num2 = new int[] { 4, 5, 6, 7, 8 };
-            ArraySwap(ref num1, ref num2);
 
         }
         public static void AssignPi(out double pi)
