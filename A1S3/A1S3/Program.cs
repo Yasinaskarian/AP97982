@@ -70,9 +70,6 @@ namespace A1S3
                 {
                     LoadOfTweet++;
                 }
-            }
-            for (int i = 0; i < words.Length; i++)
-            {
                 if (Q2_IsInWords(negWords, words[i]) == true)
                 {
                     LoadOfTweet--;

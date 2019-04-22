@@ -32,15 +32,17 @@ namespace A1S3.Tests
         {
             string[] words = new string[5] { "hello", "c#", "bye", "good", "bad" };
             string word = "c#";
+            string word1 = "yasin";
             Assert.AreEqual(true, Program.Q2_IsInWords(words, word));
+            Assert.AreEqual(false, Program.Q2_IsInWords(words, word1));
         }
 
         [TestMethod()]
         public void Q3_GetWordsOfTweetTest()
         {
-            string word = "c#ad asd";
+            string word = "This week's most popular artist? @coldplay​!";
 
-            string[] s = word.Split('#', ' ');
+            string[] s = word.Split('@','?','!', ' ');
             string[] a = Program.Q3_GetWordsOfTweet(word);
             CollectionAssert.Equals(s, a);
         }
