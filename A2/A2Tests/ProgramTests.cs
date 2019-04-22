@@ -41,16 +41,16 @@ namespace A2.Tests
             int num12 = 1;
             int num22 = 2;
             Program.Swap(ref num1,ref num2);
-            CollectionAssert.Equals($"{num22}{num12}", $"{num1}{num2}");
+           Assert.AreEqual(num12,num2);
+            Assert.AreEqual(num22, num1);
         }
 
         [TestMethod()]
         public void SumTest()
         {
             int sum;
-            int[] nums = new int[] { 1, 2, 3, 4, 5 };
-            Program.Sum(out sum, nums);
-            CollectionAssert.Equals(15,sum);
+            Program.Sum(out sum, 1,2,3,4,5);
+            Assert.AreEqual(15,sum);
         }
 
         [TestMethod()]
@@ -80,7 +80,8 @@ namespace A2.Tests
             int[] num12 = new int[] { 1, 2, 3 };
             int[] num22 = new int[] { 4, 5, 6 };
             Program.ArraySwap( num1,  num2);
-            CollectionAssert.Equals($"{num22}{num12}", $"{num1}{num2}");
+            CollectionAssert.Equals(num22, num1);
+            CollectionAssert.Equals(num12, num2);
         }
 
         [TestMethod()]
@@ -91,7 +92,8 @@ namespace A2.Tests
             int[] num12 = new int[] { 1, 2, 3 };
             int[] num22 = new int[] { 4, 5, 6, 7, 8 };
             Program.ArraySwap(ref num1,ref num2);
-            CollectionAssert.Equals($"{num22}{num12}", $"{num1}{num2}");
+            CollectionAssert.Equals(num12, num2);
+            CollectionAssert.Equals(num22, num1);
         }
     }
 }
