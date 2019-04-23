@@ -66,15 +66,15 @@ namespace A1S1.Tests
         [TestMethod()]
         public void LetterCountTest()
         {
-            string str = "ab12c d@ef 1.23";
+            string str = "ab1c@def 1.21 @ #$%^&* 464+";
             Assert.AreEqual(6, Program.LetterCount(str));
         }
 
         [TestMethod()]
         public void LineCountTest()
         {
-            string str = "hi\nbye\ngood\ns";
-            Assert.AreEqual(4, Program.LineCount(str));
+            string str = "hi bye good s";
+            Assert.AreEqual(1, Program.LineCount(str));
         }
 
         [TestMethod()]

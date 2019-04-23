@@ -16,18 +16,19 @@ namespace A1S2
         }
         public static void FileInfoLength (string FilePath)
         {
+            long length = 0;
             DirectoryInfo di = new DirectoryInfo(FilePath);
             string[] subdirections = Directory.GetDirectories(FilePath);
             if (di!= null)
             {
                 FileInfo[] subfiles = di.GetFiles();
-                if (subfiles.Length > 0)
-                {
                     foreach(FileInfo sub in subfiles)
                     {
-                        Console.WriteLine(sub.Length);
+                        //Console.WriteLine(sub.Length);
+                        length += sub.Length;
                     }
-                }
+                    Console.WriteLine(length);
+                
                 
             }
             if (subdirections.Length > 0)
