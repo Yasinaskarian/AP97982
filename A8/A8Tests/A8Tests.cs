@@ -15,23 +15,23 @@ namespace A8.Tests
         public void HumanTest()
         {
             DateTime date1 = new DateTime(1999, 3, 1, 7, 0, 0);
-            Human Yasin = new Human("yasin", "askarian", date1, 188);
-            Assert.AreEqual("yasin", Yasin.FirstName);
-            Assert.AreEqual("askarian", Yasin.LastName);
-            Assert.AreEqual(date1, Yasin.BirthDate);
-            Assert.AreEqual(188, Yasin.Height);
-            Assert.AreNotEqual(DateTime.Today, Yasin.BirthDate);
-            Assert.AreNotEqual("Mozhgan", Yasin.FirstName);
+            Human h1 = new Human("yasin", "askarian", date1, 188);
+            Assert.AreEqual("yasin", h1.FirstName);
+            Assert.AreEqual("askarian", h1.LastName);
+            Assert.AreEqual(date1, h1.BirthDate);
+            Assert.AreEqual(188, h1.Height);
+            Assert.AreNotEqual(DateTime.Today, h1.BirthDate);
+            Assert.AreNotEqual("Mozhgan", h1.FirstName);
         }
         [TestMethod()]
-        public void plus()
+        public void Plus()
         {
             DateTime date1 = new DateTime(2008, 3, 1, 7, 0, 0);
             Human h1 = new Human("yasin", "askarian", date1, 188);
-            object o = "yasin";
-            Human Person = new Human("ChildFirstName", "ChildLastName", DateTime.Today, 30);
-            Assert.AreEqual(Person, (h1 + o));
-            Assert.AreNotEqual(h1, (h1 + o));
+            Human h2 = new Human("ali", "askarian", DateTime.Today, 188);
+            Human person = new Human("ChildFirstName", "ChildLastName", DateTime.Today, 30);
+            Assert.AreEqual(person, (h1 + h2));
+            Assert.AreNotEqual(h1, (h1 + h2));
         }
         [TestMethod()]
         public void EqualsTest()
@@ -46,12 +46,18 @@ namespace A8.Tests
             Assert.AreEqual(true, Equals(h5, h1));
             Assert.AreEqual(false, Equals(h1, h2));
             Assert.AreEqual(true, h4 > h2);
+            Assert.AreEqual(false, h1 > h2);
             Assert.AreEqual(true, h1 < h2);
+            Assert.AreEqual(false, h4 < h2);
             Assert.AreEqual(true, h1 == h3);
+            Assert.AreEqual(false, h1 == h2);
+            Assert.AreEqual(true, h1 != h2);
             Assert.AreEqual(false, h1 != h3);
             Assert.AreEqual(true, h1 >= h3);
+            Assert.AreEqual(false, h1 >= h4);
             Assert.AreEqual(true, h1 <= h3);
-            
+            Assert.AreEqual(false, h4 <= h3);
+
         }
 
         [TestMethod()]
