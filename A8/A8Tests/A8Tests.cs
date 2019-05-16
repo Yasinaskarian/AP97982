@@ -15,13 +15,13 @@ namespace A8.Tests
         public void HumanTest()
         {
             DateTime date1 = new DateTime(1999, 3, 1, 7, 0, 0);
-            Human yasin = new Human("yasin", "askarian", date1, 188);
-            Assert.AreEqual("yasin", yasin.FirstName);
-            Assert.AreEqual("askarian", yasin.LastName);
-            Assert.AreEqual(date1, yasin.BirthDate);
-            Assert.AreEqual(188, yasin.Height);
-            Assert.AreNotEqual(DateTime.Today, yasin.BirthDate);
-            Assert.AreNotEqual("Mozhgan", yasin.FirstName);
+            Human h1 = new Human("yasin", "askarian", date1, 188);
+            Assert.AreEqual("yasin", h1.FirstName);
+            Assert.AreEqual("askarian", h1.LastName);
+            Assert.AreEqual(date1, h1.BirthDate);
+            Assert.AreEqual(188, h1.Height);
+            Assert.AreNotEqual(DateTime.Today, h1.BirthDate);
+            Assert.AreNotEqual("Mozhgan", h1.FirstName);
         }
         [TestMethod()]
         public void Plus()
