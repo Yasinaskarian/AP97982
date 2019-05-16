@@ -65,11 +65,11 @@
             }
 
         }
-        public Dabir(string nationalid, string name, string imgUrl, Degree topdegree,int under100StudentCount)
+        public Dabir(string nationalId, string name, string imgUrl, Degree topDegree,int under100StudentCount)
         {
             Name = name;
-            NationalId = nationalid;
-            TopDegree = topdegree;
+            NationalId = nationalId;
+            TopDegree = topDegree;
             ImgUrl = imgUrl;
             Under100StudentCount = under100StudentCount;
         }

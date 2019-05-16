@@ -10,7 +10,6 @@ namespace A7
     {
         public static void Main(string[] args)
         {
-           
         }
     }
 }

@@ -50,11 +50,11 @@ namespace A7
                 return this._ImgUrl;
             }
         }
-        public Khalle(string nationalid,string name, string imgUrl , Degree topdegree)
+        public Khalle(string nationalId,string name, string imgUrl , Degree topDegree)
         {
             Name = name;
-            NationalId = nationalid;
-            TopDegree = topdegree;
+            NationalId = nationalId;
+            TopDegree = topDegree;
             ImgUrl = imgUrl;
         }
         public string Teach()

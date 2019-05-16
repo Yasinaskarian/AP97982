@@ -52,7 +52,8 @@ namespace A7
 
         public bool IsEligible(TTeacher teacher)
         {
-            if (teacher.TopDegree == Degree.Diploma)
+
+            if (teacher.TopDegree < this.MinimumDegree)
                 return false;
             return true;
         }
