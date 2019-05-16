@@ -11,17 +11,17 @@ namespace A8
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
         public float Height { get; set; }
-        public Human(string firstname, string lastname, DateTime birthdate, float height)
+        public Human(string firstName, string lastName, DateTime birthDate, float height)
         {
-            FirstName = firstname;
-            LastName = lastname;
-            BirthDate = birthdate;
+            FirstName = firstName;
+            LastName = lastName;
+            BirthDate = birthDate;
             Height = height;
         }
-        public static Human operator +(Human h,object o)
+        public static Human operator +(Human h,Human o)
         {
-            Human Person = new Human( "ChildFirstName", "ChildLastName", DateTime.Today, 30);
-            return Person;
+            Human person = new Human( "ChildFirstName", "ChildLastName", DateTime.Today, 30);
+            return person;
         }
         public static bool operator >(Human h1,Human h2)
         {
@@ -45,7 +45,7 @@ namespace A8
         }
         public static bool operator !=(Human h1, Human h2)
         {
-            return (h1.BirthDate != h2.BirthDate);
+            return !(h1.BirthDate == h2.BirthDate);
         }
         public override bool Equals(object obj)
         {
