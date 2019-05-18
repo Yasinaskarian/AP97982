@@ -11,7 +11,9 @@ namespace A9
     {
         public static void Main(string[] args)
         {
-            
+            ExceptionHandler eh = new ExceptionHandler("s", false);
+            eh.Input = null;
+            Console.WriteLine(eh.Input);
         }
     
     }

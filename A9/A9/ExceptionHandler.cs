@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +12,7 @@ namespace A9
     {
         public string ErrorMsg { get; set; }
         public readonly bool DoNotThrow;
-        private string _Input;
+        public string _Input;
 
         public string Input
         {
@@ -19,10 +20,14 @@ namespace A9
             {
                 try
                 {
+                    
                     if (_Input == null)
                     {
+                        
+                        ErrorMsg = "Caught exception in GetMethod";
                         string s = null;
-                        int len = s.Length;
+                        Console.WriteLine(s.Length);
+                        
                     }
                         return this._Input;
                 }
@@ -39,17 +44,21 @@ namespace A9
             {
                 try
                 {
+                    
                     if (value == null)
                     {
+                        
+                        ErrorMsg = "Caught exception in SetMethod";
                         string s = null;
-                        int len = s.Length;
+                        Console.WriteLine(s.Length);
                     }
                     this._Input = value;
                 }
                 catch
                 {
                     if (!DoNotThrow)
-                        throw new NullReferenceException("Caught exception in SetMethod");
+                        throw;
+
                     ErrorMsg = "Caught exception in SetMethod";
                     
                 }
@@ -66,17 +75,27 @@ namespace A9
             Input = input;
             try
             {
+                if (Input == null)
+                    Input = null;
+
                 if (causeExceptionInConstructor==true)
                 {
+                    ErrorMsg = "Caught exception in constructor";
                     string str = null;
-                    int len = str.Length;
+                    Console.WriteLine(str.Length);
                 }
+                
             }
-            catch (NullReferenceException )
+            catch (NullReferenceException  )
             {
+                
                 if (!DoNotThrow)
+                {
+                    ErrorMsg = "Caught exception in constructor";
                     throw;
-                ErrorMsg = $"Caught exception in constructor";
+                }
+                    
+                ErrorMsg = "Caught exception in constructor";
             }
         }
         public static void ThrowIfOdd(int odd)
@@ -210,17 +229,23 @@ namespace A9
             {
                 MethodA();
             }
-            catch(NotImplementedException)
+            catch(NotImplementedException )
             {
+                
                 throw;
+                
             }
         }
+        [MethodImpl(MethodImplOptions.NoInlining)]
         public void MethodA()
         => MethodB();
+        [MethodImpl(MethodImplOptions.NoInlining)]
         public void MethodB()
         => MethodC();
+        [MethodImpl(MethodImplOptions.NoInlining)]
         public void MethodC()
         => MethodD();
+        [MethodImpl(MethodImplOptions.NoInlining)]
         public void MethodD()
         {
             if (DoNotThrow == true)
@@ -268,5 +293,6 @@ namespace A9
                 ErrorMsg = $"Caught exception {e.GetType()}";
             }
         }
+    
     }
 }
