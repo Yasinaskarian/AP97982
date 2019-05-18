@@ -63,11 +63,11 @@
             }
 
         }
-        public Professor(string nationalid, string name, string imgUrl, Degree topdegree, int ResearchCount)
+        public Professor(string nationalId, string name, string imgUrl, Degree topDegree, int ResearchCount)
         {
             Name = name;
-            NationalId = nationalid;
-            TopDegree = topdegree;
+            NationalId = nationalId;
+            TopDegree = topDegree;
             ImgUrl = imgUrl;
             this.ResearchCount = ResearchCount;
         }
