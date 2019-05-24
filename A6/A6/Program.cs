@@ -130,17 +130,21 @@ namespace A6
     }
     public struct TypeWithMemoryOnHeap
     {
-        private List<int[]> mylist;
+        private List<TypeForMaxStackOfDepth1000[]> mylist;
 
 
         public void Allocate()
         {
-            mylist = new List<int[]>();
-            for(int i=0;i<1000;i++)
-            {
-                int[] myArrey = new int[1000];
-                mylist.Add(myArrey);
-            }
+            mylist = new List<TypeForMaxStackOfDepth1000[]>();
+            TypeForMaxStackOfDepth1000[] myarrey = new TypeForMaxStackOfDepth1000[8000];
+            mylist.Add(myarrey);
+
+            //mylist = new List<int[]>();
+            //for (int i = 0; i < 1000; i++)
+            //{
+            //    int[] myArrey = new int[1000];
+            //    mylist.Add(myArrey);
+            //}
         }
 
         public void DeAllocate()
