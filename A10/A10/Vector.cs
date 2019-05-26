@@ -71,7 +71,7 @@ namespace A10
             : this(list.Count())
         {
             int i = 0;
-            foreach (IEnumerable<_Type> l in list)
+            foreach (var l in list)
             {
                 Data[i] =(_Type) l;
                 i++;
@@ -90,7 +90,7 @@ namespace A10
             {
                 if (index < 0 || index >= Size)
                 {
-                    throw new IndexOutOfBoundsException("index");
+                    throw new IndexOutOfRangeException("index");
                 }
                 return Data[index];
             }

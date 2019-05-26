@@ -37,10 +37,9 @@ namespace A10
         public Matrix(IEnumerable<Vector<_Type>> rows)
         {
             int i = 0;
-            foreach(Vector<_Type> row in rows)
+            foreach(var row in rows)
             {
-                Rows[i] = row;
-                i++;
+                this.Rows = new Vector<_Type>[row.Size];
             }
         }
 
@@ -57,7 +56,7 @@ namespace A10
             {
                 if (index < 0 || index >=RowCount)
                 {
-                    throw new IndexOutOfBoundsException("index");
+                    throw new IndexOutOfRangeException("index");
                 }
                 return Rows[index];
             }
@@ -69,8 +68,8 @@ namespace A10
             {
                 if ((row < 0 || row >= RowCount)&&(col < 0 || col >= ColumnCount))
                 {
-                    throw new IndexOutOfBoundsException("index");
-                };
+                    throw new IndexOutOfRangeException("index");
+                }
                 return Rows[row].Data[col];
             }
         }
