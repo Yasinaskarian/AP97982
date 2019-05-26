@@ -35,11 +35,12 @@ namespace A10
         /// <param name="rowCount"></param>
         /// <param name="columnCount"></param>
         public Matrix(IEnumerable<Vector<_Type>> rows)
+            : this(rows.ToArray().Length, rows.ToArray()[0].Size)
         {
-            int i = 0;
             foreach(var row in rows)
             {
-                this.Rows = new Vector<_Type>[row.Size];
+                this.Add(row);
+               
             }
         }
 
@@ -60,17 +61,25 @@ namespace A10
                 }
                 return Rows[index];
             }
+            set
+            {
+                Rows[index] = value;
+            }
         }
 
         public _Type this[int row, int col]
         {
             get
             {
-                if ((row < 0 || row >= RowCount)&&(col < 0 || col >= ColumnCount))
+                if ((row < 0 || row >= RowCount) && (col < 0 || col >= ColumnCount))
                 {
                     throw new IndexOutOfRangeException("index");
                 }
                 return Rows[row].Data[col];
+            }
+            set
+            {
+                Rows[row].Data[col] = value;
             }
         }
 

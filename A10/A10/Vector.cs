@@ -94,6 +94,10 @@ namespace A10
                 }
                 return Data[index];
             }
+            set
+            {
+                Data[index] = value;
+            }
         }
 
 
