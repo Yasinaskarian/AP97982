@@ -184,16 +184,18 @@ namespace A9
             {
 
                 sb.Append("InTryBlock:");
-                if ((s == null) && (DoNotThrow == false))
+                if ((s == null))
                     throw new NullReferenceException();
 
 
             }
             catch (NullReferenceException nre)
             {
-                ErrorMsg = $"Caught exception {nre.GetType()}";
+                    ErrorMsg = $"Caught exception {nre.GetType()}";
+                    FinallyBlockStringOut = sb.Append(":Object reference not set to an instance of an object.").ToString();
+                if(!DoNotThrow)
                 throw;
-
+                
             }
             finally
             {
@@ -206,7 +208,7 @@ namespace A9
                         FinallyBlockStringOut = sb.Append("beautiful:9:DoneWriting:InFinallyBlock:EndOfMethod").ToString();
                         break;
                     case (null):
-                        FinallyBlockStringOut = sb.Append(":Object reference not set to an instance of an object.:InFinallyBlock").ToString();
+                        FinallyBlockStringOut = sb.Append(":InFinallyBlock").ToString();
                         break;
                 }
                 if ((DoNotThrow == true))
