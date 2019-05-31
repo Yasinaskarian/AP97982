@@ -44,8 +44,6 @@ namespace A9
             {
                 try
                 {
-                    if (value.Length < 50)
-                        _Input = value;
                     if (value == null)
                     {
                         string s = null;
