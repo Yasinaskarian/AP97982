@@ -218,7 +218,14 @@ namespace A9
 
         public void NestedMethods()
         {
+            try
+            {
                 MethodA();
+            }
+            catch (NotImplementedException)
+            {
+                throw;
+            }
         }
         [MethodImpl(MethodImplOptions.NoInlining)]
         public void MethodA()
