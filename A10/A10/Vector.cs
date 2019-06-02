@@ -198,9 +198,8 @@ namespace A10
         ///// <returns>Whether this object is equal to obj</returns>
         public override bool Equals(object obj)
         {
-            if(obj is Vector<_Type>)
+            if (obj is Vector<_Type> v1)
             {
-                Vector<_Type> v1 = obj as Vector<_Type>;
                 if (this.Size == v1.Size)
                 {
                     int count = 0;
@@ -228,22 +227,14 @@ namespace A10
         /// <returns>whether other vector is equal to this vector</returns>
         public bool Equals(Vector<_Type> other)
         {
-            if (this.Size == other.Size)
-            {
                 int count = 0;
                 for (int i = 0; i < other.Size; i++)
-                {
-                    dynamic d1 = other[i];
-                    dynamic d2 = this.Data[i];
-                    if (d1==d2)
-                    {
+                    if ((dynamic)this.Data[i] == other.Data[i])
                         count++;
-                    }
-                }
-                if (count == other.Size)
-                    return true;
-            }
-            return false;
+                    if (count == other.Size)
+                       return true;
+                    else
+                       return false;
         }
 
         public override int GetHashCode()
