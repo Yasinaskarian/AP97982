@@ -44,11 +44,8 @@ namespace A9
             {
                 try
                 {
-                    
                     if (value == null)
                     {
-                        
-                        ErrorMsg = "Caught exception in SetMethod";
                         string s = null;
                         Console.WriteLine(s.Length);
                     }
@@ -75,12 +72,8 @@ namespace A9
             Input = input;
             try
             {
-                if (Input == null)
-                    Input = null;
-
                 if (causeExceptionInConstructor==true)
                 {
-                    ErrorMsg = "Caught exception in constructor";
                     string str = null;
                     Console.WriteLine(str.Length);
                 }
@@ -100,17 +93,8 @@ namespace A9
         }
         public static void ThrowIfOdd(int odd)
         {
-            try
-            {
                 if (odd % 2 != 0)
-                {
                     throw new InvalidDataException();
-                }
-            }
-            catch
-            {
-                throw;
-            }
         }
         public void OverflowExceptionMethod()
         {
@@ -198,29 +182,40 @@ namespace A9
             StringWriter swr = new StringWriter(sb);
             try
             {
-                if ((s == null) && (DoNotThrow == false))
+
+                sb.Append("InTryBlock:");
+                if ((s == null))
                     throw new NullReferenceException();
+
+
             }
             catch (NullReferenceException nre)
             {
-                ErrorMsg = $"Caught exception {nre.GetType()}";
+                    ErrorMsg = nre.Message;
+                    FinallyBlockStringOut = sb.Append(":Object reference not set to an instance of an object.").ToString();
+                if(!DoNotThrow)
                 throw;
                 
             }
             finally
             {
-                if(s== "ugly")
-                    FinallyBlockStringOut = "InTryBlock::InFinallyBlock";
-                if (s == "beautiful")
-                    FinallyBlockStringOut = "InTryBlock:beautiful:9:DoneWriting:InFinallyBlock:EndOfMethod";
-                if ((s == null) && (DoNotThrow == false))
-                    FinallyBlockStringOut = "InTryBlock::Object reference not set to an instance of an object.:InFinallyBlock";
-                if ((s==null) && (DoNotThrow == true))
-                    FinallyBlockStringOut = "InTryBlock::Object reference not set to an instance of an object.:InFinallyBlock:EndOfMethod";
-                
-               
+                switch (s)
+                {
+                    case ("ugly"):
+                        FinallyBlockStringOut = sb.Append(":InFinallyBlock").ToString();
+                        break;
+                    case ("beautiful"):
+                        FinallyBlockStringOut = sb.Append("beautiful:9:DoneWriting:InFinallyBlock:EndOfMethod").ToString();
+                        break;
+                    case (null):
+                        FinallyBlockStringOut = sb.Append(":InFinallyBlock").ToString();
+                        break;
+                }
+                if ((DoNotThrow == true))
+                    FinallyBlockStringOut = sb.Append(":EndOfMethod").ToString();
+
             }
-            //FinallyBlockStringOut += ":EndOfMethod";
+        
         }
 
         public void NestedMethods()
@@ -229,11 +224,9 @@ namespace A9
             {
                 MethodA();
             }
-            catch(NotImplementedException )
+            catch (NotImplementedException)
             {
-                
                 throw;
-                
             }
         }
         [MethodImpl(MethodImplOptions.NoInlining)]
