@@ -191,7 +191,7 @@ namespace A9
             }
             catch (NullReferenceException nre)
             {
-                    ErrorMsg = $"Caught exception {nre.GetType()}";
+                    ErrorMsg = nre.Message;
                     FinallyBlockStringOut = sb.Append(":Object reference not set to an instance of an object.").ToString();
                 if(!DoNotThrow)
                 throw;
