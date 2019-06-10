@@ -125,6 +125,7 @@ namespace E2.Linq
                 .OrderByDescending(g => g.Count())
                 .Select(g=>g.Key)
                 .ToArray();
+            //ศ?ิสั?ไ Amir Esmaeli
             return s[0];
         }
     }
