@@ -8,6 +8,7 @@ namespace A13
     {
         private static FileSystemWatcher Watcher=new FileSystemWatcher();
         private string FileName { get; set; }
+        public Action<WatcherChangeTypes> Singlefile1;
         public Action Singlefile;
 
         public SingleFileWatcher(string fileName)
@@ -16,6 +17,10 @@ namespace A13
             Watcher.Path = Path.GetDirectoryName(FileName);
             Watcher.Filter = Path.GetFileName(FileName);
             Watcher.Changed += new FileSystemEventHandler(OnChanged);
+            Watcher.NotifyFilter = NotifyFilters.LastAccess
+                     | NotifyFilters.LastWrite
+                     | NotifyFilters.FileName
+                     | NotifyFilters.DirectoryName;
             Watcher.EnableRaisingEvents = true;
             
         }

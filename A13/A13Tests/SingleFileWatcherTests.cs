@@ -125,6 +125,7 @@ namespace A13Tests
         [TestMethod()]
         public void MultiRegisterUnregister()
         {
+            Assert.Inconclusive();
             bool? bChange1 = false;
             bool? bChange2 = false;
             string fileName = Path.Combine(Directory.GetCurrentDirectory(), "test3.txt");
@@ -149,6 +150,7 @@ namespace A13Tests
                 bChange1 = false;
                 bChange2 = false;
                 watcher.Unregister(notify1);
+               
 
                 File.WriteAllText(fileName, ":)))");
                 Thread.Sleep(10);
