@@ -15,7 +15,7 @@ namespace A13
             this.FileName = fileName;
             Watcher.Path = Path.GetDirectoryName(FileName);
             Watcher.Filter = Path.GetFileName(FileName);
-            Watcher.Changed += OnChanged;
+            Watcher.Changed += new FileSystemEventHandler(OnChanged);
             Watcher.EnableRaisingEvents = true;
             
         }
@@ -34,7 +34,10 @@ namespace A13
         }
         public void Dispose()
         {
-            Watcher.Dispose();
+            FileSystemEventHandler callback = (sender, arg) =>
+            {
+                Watcher.Dispose();
+            };
         }
     }
 }

@@ -150,8 +150,8 @@ namespace A13Tests
             int? sum = 0;
             Stopwatch sw = Stopwatch.StartNew();
             long duration = ActionTools.CallParallelThreadSafe(100,
-                () => { sum += 2; Task.Delay(10).Wait(); },
-                () => { sum -= 1; Task.Delay(10).Wait(); }
+                () => { sum+=2; Task.Delay(10).Wait(); },
+                () => { sum-=1; Task.Delay(10).Wait(); }
                 );
 
             var elapsed = sw.ElapsedMilliseconds;
@@ -202,7 +202,7 @@ namespace A13Tests
             Assert.IsTrue(t3Called.Value);
 
             var elapsed = sw.ElapsedMilliseconds;
-            Assert.IsTrue(Math.Abs(result.Result - elapsed) < 2 * TestTimingTolerance);
+            Assert.IsTrue(Math.Abs(result.Result - elapsed) < 2*TestTimingTolerance);
         }
 
         /// <summary>
