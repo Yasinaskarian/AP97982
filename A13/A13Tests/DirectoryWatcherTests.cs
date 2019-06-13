@@ -54,7 +54,7 @@ namespace A13Tests
                 Directory.CreateDirectory(dir);
 
             var files2Create = Enumerable.Range(1, 5)
-                .Select(n => rnd.Next(10000, 99999))
+                .Select(n => rnd.Next(10000,99999))
                 .Select(n => Path.Combine(dir, $"{n}.txt")).ToList();
 
             List<string> createdFiles = new List<string>();
@@ -72,7 +72,7 @@ namespace A13Tests
 
             files2Create.ForEach(f => { if (File.Exists(f)) File.Delete(f); });
 
-            Directory.Delete(dir, true);
+            Directory.Delete(dir,true);
         }
 
         /// <summary>

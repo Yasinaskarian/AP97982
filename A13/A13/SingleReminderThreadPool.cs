@@ -5,15 +5,25 @@ namespace A13
 {
     public class SingleReminderThreadPool : ISingleReminder
     {
-        public int Delay => throw new NotImplementedException();
+        public SingleReminderThreadPool(string msg,int delay)
+        {
+            Delay = delay;
+            Msg = msg;
+        }
+        public int Delay { get; set; }
 
-        public string Msg => throw new NotImplementedException();
-
+        public string Msg { get; set; }
         public event Action<string> Reminder;
 
         public void Start()
         {
-            throw new NotImplementedException();
+            foreach (var v in Reminder.GetInvocationList())
+            {
+                ThreadPool.QueueUserWorkItem((d) => v.DynamicInvoke(Msg));
+                Thread.Sleep(Delay);
+            }
+           
         }
+        
     }
 }

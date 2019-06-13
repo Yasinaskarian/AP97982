@@ -6,16 +6,30 @@ namespace A13
     public class SingleReminderThread : ISingleReminder
     {
         Thread ReiminderThread = null;
+        public SingleReminderThread(string msg, int delay)
+        {
+            Delay = delay;
+            Msg = msg;
+        }
+        public int Delay { get; set; }
 
-        public int Delay => throw new NotImplementedException();
-
-        public string Msg => throw new NotImplementedException();
+        public string Msg { get; set; }
 
         public event Action<string> Reminder;
+      
 
+        
         public void Start()
         {
-            throw new NotImplementedException();
+            
+            foreach (var v in Reminder.GetInvocationList())
+                {
+                   ReiminderThread = new Thread(() => v.DynamicInvoke(Msg)) { };
+                Thread.Sleep(Delay);
+            }
+            ReiminderThread.Start();
+            ReiminderThread.Join();
+            
         }
     }
 }
