@@ -25,7 +25,7 @@ namespace A13
         public static long CallSequential(params Action[] actions)
         {
             
-            object sync = new object();
+           
             Timer mytime = new Timer();
             using (mytime)
             {
