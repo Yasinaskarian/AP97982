@@ -31,10 +31,12 @@ namespace A13
 
         public void Register(Action a)
         {
+            //Singlefile =(Action)Delegate.Combine(Singlefile,a);
             Singlefile += a;
         }
         public void Unregister(Action a)
         {
+            //Singlefile =(Action)Delegate.Remove(Singlefile,a);
             Singlefile -= a;
         }
         public void Dispose()
