@@ -21,22 +21,18 @@
 
     public class Student : Person
     {
-        public string Name { get; set; }
-        public bool IsFemale { get; set; }
+        public  string N { get; set; }
         public override int LunchRate => 2000;
-        //public Student(string name, bool isFemale)
-        //    : base(name, isFemale);
         public Student(string name, bool isFemale)
-            : base(name, isFemale)
         {
-            //if (isFemale == true)
-            //{
-            //    this.Name = $"خانم {name}";
-            //}
-            //else
-            //    this.Name = $"آقای {name}";
-
-            //this.IsFemale = isFemale;
+            if (isFemale == true)
+            {
+                this.Name = $"خانم {name}";
+            }
+            else
+                this.Name = $"آقای {name}";
+            this.N = this.Name;
+            this.IsFemale = isFemale;
         }
 
     }
@@ -44,22 +40,17 @@
     public class Employee : Person
     {
         public override int LunchRate => 5000;
-        public string Name { get; set; }
-        public bool IsFemale { get; set; }
-        //public Student(string name, bool isFemale)
-        //    : base(name, isFemale);
-        public Employee(string name, bool isFemale)
+        public string N { get; set; }
+        public Employee(string name = null, bool isFemale = false)
         {
-            string s = null;
             if (isFemale == true)
             {
-                s = $"خانم {name}";
+                this.Name = $"خانم {name}";
             }
             else
-                s = $"آقای {name}";
-
+                this.Name = $"آقای {name}";
+            this.N = this.Name;
             this.IsFemale = isFemale;
-            this.Name = s;
         }
 
         public virtual int CalculateSalary(int v)
@@ -71,20 +62,12 @@
     public class Teacher: Employee
     {
         public override int LunchRate => 10000;
-        public string Name { get; set; }
-        public bool IsFemale { get; set; }
+        public string N1 { get; set; }
         public Teacher(string name, bool isFemale)
-            : base(name, isFemale)
         {
-            if (isFemale == true)
-            {
-                this.Name = $"استاد {name}";
-            }
-            else
-                this.Name = $"استاد {name}";
-
+            this.Name = $"استاد {name}";
+            this.N1 = this.Name;
             this.IsFemale = isFemale;
-            Name = this.Name;
         }
         public override int CalculateSalary(int v)
         {
