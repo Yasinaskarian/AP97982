@@ -96,9 +96,7 @@ namespace E2.Linq
                 .Select(g => g.Count())
                 .Take(5)
                 .ToArray();
-            //»?‘ —?‰ Å?«„ Amir Esmaeili
-            //»«  ⁄œ«œ131 Å?«„ 
-
+         
             Tuple<string, int>[] t = new Tuple<string, int>[s.Length];
             for (int a = 0; a < s.Length; a++)
             {
@@ -125,8 +123,7 @@ namespace E2.Linq
                 .Select(g => g.Count())
                 .Take(5)
                 .ToArray();
-            //»?‘ —?‰ »Â  — ?» Amir Esmaeili ali heydari sauleh eetemadi hossein amin mir
-            //»?‘ —?‰ »Â  — ?»  ⁄œ«œ 11Ê8Ê5Ê3Ê3
+            
             Tuple<string, int>[] t = new Tuple<string, int>[s.Length];
             for (int a = 0; a < s.Length; a++)
             {
@@ -139,12 +136,13 @@ namespace E2.Linq
         public string StudentWithMostUnansweredQuestions()
         {
             string[] s = Messages
-    .Where(d => d.Content.Contains("?") || d.Content.Contains("ø"))
-    .GroupBy(g => g.Author)
-    .OrderByDescending(g => g.Count())
-    .Select(g => g.Key)
-    .ToArray();
-            //»?‘ —?‰ Amir Esmaeli
+                .Where(d=>d.ReplyMessageId==null)
+                .Where(d => d.Content.Contains("?") || d.Content.Contains("ø"))
+                .GroupBy(g => g.Author)
+                .OrderByDescending(g => g.Count())
+                .Select(g => g.Key)
+                .ToArray();
+            
             return s[0];
         }
     }
