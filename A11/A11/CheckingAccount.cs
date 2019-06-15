@@ -15,26 +15,9 @@ namespace A11
             TransactionFee = transactionFee;
         }
         public override void Credit(double amount)
-        {
-            if (amount < 0)
-            {
-                throw new ArgumentException("Credit amount must be positive");
-            }
-            Balance += (amount-TransactionFee);
-        }
+           => base.Credit((amount - TransactionFee));
+   
         public override bool Debit(double amount)
-        {
-            if (amount <= Balance)
-            {
-                Balance -= (amount+TransactionFee);
-                return true;
-            }
-            else
-            {
-
-                Console.WriteLine($"Debit amount exceeded account balance.");
-                return false;
-            }
-        }
+               =>  base.Debit(amount+TransactionFee);
     }
 }
