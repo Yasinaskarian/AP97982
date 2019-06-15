@@ -144,7 +144,7 @@ namespace E2.Tests
         [TestMethod()]
         public void MostQuestionsWithNoAnswerTest()
         {
-			//Assert.Inconclusive();
+            Assert.Inconclusive();
             string actual = Instance.StudentWithMostUnansweredQuestions();
 
             Assert.AreEqual(1878110358, actual.GetHashCode());
