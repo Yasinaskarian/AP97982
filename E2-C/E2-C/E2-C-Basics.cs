@@ -77,10 +77,10 @@ namespace E2
         public static int PIPrecision()
         {
             double a = 1;
-            long b = 1;
-            double pi = 0;
-            int i = 0;
-            while (pi < Math.PI )
+            double b = 3;
+            double pi = 1;
+            long i = 1;
+            while (true)
             {
                 if (i % 2 == 0)
                 {
@@ -88,12 +88,13 @@ namespace E2
                 }
                 else
                     pi -= a / b;
-
                 b = b + 2;
                 i++;
+                if(Math.Abs(Math.Round(Math.PI, 7) -4*pi)< 0.00000005)
+                    return (int)i;
             }
           
-            return i;
+           
         }
 
         public static int Fibonacci(this int n)
