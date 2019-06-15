@@ -13,15 +13,11 @@ namespace A11
         {
             get
             {
-                if (_balance == null)
-                    throw new NullReferenceException();
-                return _balance;
 
+                return _balance;
             }
             set
             {
-                if (value == null)
-                    throw new NullReferenceException();
                 _balance = value;
             }
         }
