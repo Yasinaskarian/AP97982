@@ -22,7 +22,8 @@ namespace A14
             this.Calc.Display = "0";
             return this;
         }
-        //in method baraye in ast ke avalin adad vorodi ma agar gheyr az sefr bod dar display nemayesh dahad
+        //in method baraye in ast ke avalin adad vorodi ma agar gheyr az sefr bod dar display nemayesh dahad 
+        //ke khoroji an yec accumulatestate hast
         public override IState EnterNonZeroDigit(char c)
         {
             this.Calc.Display = c.ToString();
