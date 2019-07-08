@@ -8,11 +8,12 @@
     {
         public double sum = 0;
         public ComputeState(Calculator calc) : base(calc) { }
-
+        private char? Operator;
         public override IState EnterEqual()
         {
             if (this.Calc.PendingOperator != '=')
             {
+                 this.Calc.PendingOperator= Operator ;
                 if (this.Calc.PendingOperator == '+')
                     this.Calc.Display =
                         (double.Parse(this.Calc.Display) + this.Calc.Accumulation)
@@ -47,7 +48,11 @@
         {
             // #3 لطفا!
             if (Calculator.Operators.ContainsKey((dynamic)this.Calc.PendingOperator))
+            {
                 this.Calc.Display = "";
+                Operator = this.Calc.PendingOperator;
+                this.Calc.PendingOperator = '$';
+            }
             this.Calc.Display += c.ToString();
             return this;
         }
