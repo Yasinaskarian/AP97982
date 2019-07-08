@@ -21,15 +21,12 @@ namespace A13
         
         public void Start()
         {
-            
-            foreach (var v in Reminder.GetInvocationList())
-                {
-                   ReiminderThread = new Thread(() => v.DynamicInvoke(Msg)) { };
-                Thread.Sleep(Delay);
-            }
+
+            ReiminderThread = new Thread(() => Reminder.DynamicInvoke(Msg)) { };
+            Thread.Sleep(Delay);
             ReiminderThread.Start();
             ReiminderThread.Join();
-            
+
         }
     }
 }
