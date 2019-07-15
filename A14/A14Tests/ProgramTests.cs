@@ -77,7 +77,8 @@ namespace A14.Tests
         /// فشار دادن دکمه مساوی، نتیجه محاسبه نمایش داده شود.
         /// </summary>
         [TestMethod()]
-        public void SumTest() => RunTest<ComputeState>(keys: "10+10=q", expectedDisplay: "20");
+        //public void SumTest() => RunTest<ComputeState>(keys: "10+10=q", expectedDisplay: "20");
+        public void SumTest() => RunTest<ComputeState>(keys: "23+++14=q", expectedDisplay: "37");
 
         /// <summary>
         /// چنانچه بعد از نمایش نتیجه یک محاسبه، دکمه مساوی مجددا فشار داده شود، لازم است حالت ماشین‌حساب به
@@ -92,32 +93,37 @@ namespace A14.Tests
         /// حال که عملگر جمع به درستی پیاده‌سازی شد، نوبت عملگر ضرب می‌باشد. تغییرات لازم برای پاس شدن این تست را اعمال کنید.
         /// </summary>
         [TestMethod()]
-        public void MultiplyTest() => RunTest<ComputeState>(keys: "10*10=q", expectedDisplay: "100");
+        //public void MultiplyTest() => RunTest<ComputeState>(keys: "10*10=q", expectedDisplay: "100");
+        public void MultiplyTest() => RunTest<ComputeState>(keys: "13*13=q", expectedDisplay: "169");
 
         /// <summary>
         /// چنانچه تست‌های قبل به درستی پیاده‌سازی شده باشند، این تست نیز بدون هیچ تغییری باید پاس بشود.
         /// </summary>
         [TestMethod()]
-        public void MultipleSumTest() => RunTest<ComputeState>(keys: "10+10+10.3=q", expectedDisplay: "30.3");
+        //public void MultipleSumTest() => RunTest<ComputeState>(keys: "10+10+10.3=q", expectedDisplay: "30.3");
+        public void MultipleSumTest() => RunTest<ComputeState>(keys: "23+14+3=q", expectedDisplay: "40");
 
         /// <summary>
         /// این تست درستی اجرای عملگر تقسیم را راست‌آزمایی می‌کند.
         /// </summary>
         [TestMethod()]
-        public void DivideTest() => RunTest<ComputeState>(keys: "10/2=q", expectedDisplay: "5");
+        //public void DivideTest() => RunTest<ComputeState>(keys: "10/2=q", expectedDisplay: "5");
+        public void DivideTest() => RunTest<ComputeState>(keys: "128/32=q", expectedDisplay: "4");
 
         /// <summary>
         /// چنانچه تست‌های قبل به درستی پیاده‌سازی شده باشند، این تست نیز بدون هیچ تغییری باید پاس بشود.
         /// </summary>
         [TestMethod()]
-        public void StartingPointTest() => RunTest<ComputeState>(keys: ".5*2=q", expectedDisplay: "1");
+        //public void StartingPointTest() => RunTest<ComputeState>(keys: ".5*2=q", expectedDisplay: "1");
+        public void StartingPointTest() => RunTest<ComputeState>(keys: ".5*24=q", expectedDisplay: "12");
 
         /// <summary>
         /// حال که چهار عمل اصلی را برای ماشین‌حساب پیاده ‌سازی کردید،‌ نوبت پیاده‌سازی یک عملگر جدید می‌باشد.
         /// تغییرات لازم را برای پاس شدن تست توان اعمال کنید.
         /// </summary>
         [TestMethod()]
-        public void PowerTest() => RunTest<ComputeState>(keys: "2^10=q", expectedDisplay: "1024");
+        //public void PowerTest() => RunTest<ComputeState>(keys: "2^10=q", expectedDisplay: "1024");
+        public void PowerTest() => RunTest<ComputeState>(keys: "2^11=q", expectedDisplay: "2048");
 
 
         private void RunTest<ExpectedState>(string keys, string expectedDisplay)
