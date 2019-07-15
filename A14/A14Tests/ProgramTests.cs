@@ -78,7 +78,7 @@ namespace A14.Tests
         /// </summary>
         [TestMethod()]
         //public void SumTest() => RunTest<ComputeState>(keys: "10+10=q", expectedDisplay: "20");
-        public void SumTest() => RunTest<ComputeState>(keys: "23+14=q", expectedDisplay: "37");
+        public void SumTest() => RunTest<ComputeState>(keys: "23+++14=q", expectedDisplay: "37");
 
         /// <summary>
         /// چنانچه بعد از نمایش نتیجه یک محاسبه، دکمه مساوی مجددا فشار داده شود، لازم است حالت ماشین‌حساب به

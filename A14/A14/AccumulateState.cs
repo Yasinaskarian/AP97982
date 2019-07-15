@@ -33,7 +33,8 @@ namespace A14
         public override IState EnterOperator(char c)
         {
             this.Calc.PendingOperator = c;
-                this.Calc.Accumulation += double.Parse(this.Calc.Display);  
+                this.Calc.Accumulation += double.Parse(this.Calc.Display);
+            
             return new ComputeState(this.Calc);
         }
 

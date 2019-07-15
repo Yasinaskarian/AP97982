@@ -6,7 +6,8 @@
     /// </summary>
     public class ComputeState : CalculatorState
     {
-        public double sum = 0;
+        public double d = 0;
+        
         public ComputeState(Calculator calc) : base(calc) { }
         private char? Operator;
         public override IState EnterEqual()
@@ -72,11 +73,17 @@
         public override IState EnterOperator(char c)
         {
 
-            if (c == '+')
+            if (c == '+'&&this.Calc.PendingOperator=='$')
             {
-                this.Calc.Accumulation += double.Parse(this.Calc.Display);
-                this.Calc.Display="";
+                try
+                {
+                    this.Calc.Accumulation += double.Parse(this.Calc.Display);
+                }
+                catch { this.Calc.Accumulation += 0; }
+                finally { this.Calc.Display = ""; }
+
             }
+            this.Calc.Display = "";
             return this;
         }
 
