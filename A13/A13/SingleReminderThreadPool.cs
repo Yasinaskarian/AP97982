@@ -17,12 +17,8 @@ namespace A13
 
         public void Start()
         {
-            foreach (var v in Reminder.GetInvocationList())
-            {
-                ThreadPool.QueueUserWorkItem((d) => v.DynamicInvoke(Msg));
+                ThreadPool.QueueUserWorkItem((d) => Reminder.DynamicInvoke(Msg));
                 Thread.Sleep(Delay);
-            }
-           
         }
         
     }

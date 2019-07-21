@@ -16,15 +16,9 @@ namespace A13
         {
             this.FileName = fileName;
             Watcher = new FileSystemWatcher(fileName);
-            //Watcher.Path = Path.GetDirectoryName(FileName);
-            //Watcher.Filter = Path.GetFileName(FileName);
             Watcher.Changed += OnChanged;
             Watcher.Created += OnChanged;
             Watcher.Deleted += OnChanged;
-            //Watcher.NotifyFilter = NotifyFilters.LastAccess
-            //         | NotifyFilters.LastWrite
-            //         | NotifyFilters.FileName
-            //         | NotifyFilters.DirectoryName;
             Watcher.EnableRaisingEvents = true;
         }
         

@@ -6,59 +6,57 @@ using System.Threading.Tasks;
 
 namespace A13
 {
-    public class Timer : IDisposable
+    public class Watcher : IDisposable
     {
-        private Stopwatch mystopwatch;
-        public Timer()
+        private Stopwatch Mystopwatch;
+        public Watcher()
         {
-            mystopwatch = new Stopwatch();
-            mystopwatch.Start();
+            Mystopwatch = new Stopwatch();
+            Mystopwatch.Start();
         }
         public void Dispose()
         {
-            mystopwatch.Stop();
+            Mystopwatch.Stop();
         }
-        public long Timercount() => mystopwatch.ElapsedMilliseconds;
+        public long Timercount() => Mystopwatch.ElapsedMilliseconds;
     }
     public static class ActionTools
     {
         public static long CallSequential(params Action[] actions)
         {
-            
-           
-            Timer mytime = new Timer();
-            using (mytime)
+            Watcher myTime = new Watcher();
+            using (myTime)
             {
                 foreach (var v in actions)
                     v();
             }
-            return mytime.Timercount();
+            return myTime.Timercount();
         }
 
         public static long CallParallel(params Action[] actions)
         {
-            Timer mytime = new Timer();
-            using (mytime)
+            Watcher myTime = new Watcher();
+            using (myTime)
             {
-                List<Task> taskmaneger = new List<Task>() { };
+                List<Task> taskManager = new List<Task>() { };
                 foreach (var v in actions)
                 {
                     Task mytask = new Task(v);
                     mytask.Start();
-                    taskmaneger.Add(mytask);
+                    taskManager.Add(mytask);
                 }
-                Task.WaitAll(taskmaneger.ToArray());
+                Task.WaitAll(taskManager.ToArray());
             }
-            return mytime.Timercount();
+            return myTime.Timercount();
         }
 
         public static long CallParallelThreadSafe(int count, params Action[] actions)
         {
             object sync = new object();
-            Timer mytime = new Timer();
-            using (mytime)
+            Watcher myTime = new Watcher();
+            using (myTime)
             {
-                List<Task> taskmaneger = new List<Task>() { };
+                List<Task> taskManager = new List<Task>() { };
                 for (int i = 0; i < count; i++)
                 {
                     lock (sync)
@@ -69,8 +67,8 @@ namespace A13
                             {
                                 Task mytask = new Task(v);
                                 mytask.Start();
-                                taskmaneger.Add(mytask);
-                                Task.WaitAll(taskmaneger.ToArray());
+                                taskManager.Add(mytask);
+                                Task.WaitAll(taskManager.ToArray());
                             }
                         }
                       
@@ -78,27 +76,26 @@ namespace A13
                     
                 }
             }
-            return mytime.Timercount();
+            return myTime.Timercount();
         }
 
 
         public static async Task<long> CallSequentialAsync(params Action[] actions)
         {
-
             return await Task.Run(() =>
             {
-                Timer mytime = new Timer();
-                using (mytime)
+                Watcher myTime = new Watcher();
+                using (myTime)
                 {
 
-                    List<Task> taskmaneger = new List<Task>() { };
+                    List<Task> taskManager = new List<Task>() { };
                     foreach (var v in actions)
                     {
                         v();
                     }
 
                 }
-                return mytime.Timercount();
+                return myTime.Timercount();
             });
             
         }
@@ -107,19 +104,19 @@ namespace A13
         {
             return await Task.Run(() =>
             {
-                Timer mytime = new Timer();
-                using (mytime)
+                Watcher myTime = new Watcher();
+                using (myTime)
                 {
-                    List<Task> taskmaneger = new List<Task>() { };
+                    List<Task> taskManager = new List<Task>() { };
                     foreach (var v in actions)
                     {
                         Task mytask = new Task(v);
                         mytask.Start();
-                        taskmaneger.Add(mytask);
+                        taskManager.Add(mytask);
                     }
-                    Task.WaitAll(taskmaneger.ToArray());
+                    Task.WaitAll(taskManager.ToArray());
                 }
-                return mytime.Timercount();
+                return myTime.Timercount();
             });
         }
 
@@ -128,10 +125,10 @@ namespace A13
             return await Task.Run(() =>
             {
                 object sync = new object();
-                Timer mytime = new Timer();
-                using (mytime)
+                Watcher myTime = new Watcher();
+                using (myTime)
                 {
-                    List<Task> taskmaneger = new List<Task>() { };
+                    List<Task> taskManager = new List<Task>() { };
                     for (int i = 0; i < count; i++)
                     {
                         lock (sync)
@@ -142,8 +139,8 @@ namespace A13
                                 {
                                     Task mytask = new Task(v);
                                     mytask.Start();
-                                    taskmaneger.Add(mytask);
-                                    Task.WaitAll(taskmaneger.ToArray());
+                                    taskManager.Add(mytask);
+                                    Task.WaitAll(taskManager.ToArray());
                                 }
                             }
 
@@ -151,7 +148,7 @@ namespace A13
 
                     }
                 }
-                return mytime.Timercount();
+                return myTime.Timercount();
             });
         }
     }

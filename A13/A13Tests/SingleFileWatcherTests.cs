@@ -61,12 +61,12 @@ namespace A13Tests
                 File.WriteAllText(fileName, "کپ‌ها رو میگیره");
                 watcher.Register(notify);
                 File.WriteAllText(fileName, "کپ‌ها رو میگیرن");
-                Thread.Sleep(110);
+                Thread.Sleep(10);
                 Assert.AreEqual(true, bChanged);
 
                 bChanged = false;
                 File.WriteAllText(fileName0, "do not get notified");
-                Thread.Sleep(110);
+                Thread.Sleep(10);
                 Assert.AreEqual(false, bChanged);
             }
 
@@ -125,7 +125,7 @@ namespace A13Tests
         [TestMethod()]
         public void MultiRegisterUnregister()
         {
-            Assert.Inconclusive();
+            //Assert.Inconclusive();
             object sync = new object();
             bool? bChange1 = false;
             bool? bChange2 = false;
@@ -142,7 +142,7 @@ namespace A13Tests
                 watcher.Register(notify1);
                 watcher.Register(notify2);
                 File.WriteAllText(fileName, "کپ‌ها رو میگیرن");
-                Thread.Sleep(110);
+                Thread.Sleep(10);
 
                 Assert.AreEqual(true, bChange1);
                 Assert.AreEqual(true, bChange2);
@@ -152,7 +152,7 @@ namespace A13Tests
                 watcher.Unregister(notify1);
 
                 File.WriteAllText(fileName, ":)))");
-                Thread.Sleep(110);
+                Thread.Sleep(10);
 
                 Assert.AreEqual(false, bChange1);
                 Assert.AreEqual(true, bChange2);

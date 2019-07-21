@@ -20,14 +20,10 @@ namespace A13
 
         public void Start()
         {
-            foreach (var v in Reminder.GetInvocationList())
-            {
-                ReiminderTask = new Task(() => v.DynamicInvoke(Msg)) { };
-                Thread.Sleep(Delay);
-            }
+            ReiminderTask = new Task(() => Reminder.DynamicInvoke(Msg)) { };
+            Thread.Sleep(Delay);
             ReiminderTask.Start();
-            ReiminderTask.Wait();
-     
+            //ReiminderTask.Wait();
         }
     }
 }
