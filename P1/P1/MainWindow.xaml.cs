@@ -543,6 +543,16 @@ namespace P1
             MyCanvas.Children.Clear();
             Draw_Click(sender, e);
         }
+
+        private void Print_Click(object sender, RoutedEventArgs e)
+        {
+            PrintDialog prnt = new PrintDialog();
+            if (prnt.ShowDialog() == true)
+            {
+                prnt.PrintVisual(MyCanvas, "Printing Canvas");
+            }
+            
+        }
     }
 
 }

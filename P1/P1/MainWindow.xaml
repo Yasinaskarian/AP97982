@@ -56,7 +56,7 @@
                     <Button x:Name="Draw" Content="Draw" HorizontalAlignment="Left" VerticalAlignment="Top" Width="321" Click="Draw_Click"/>
                     <Button x:Name="Clear" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="316" Margin="326,0,0,0" Click="Clear_Click" />
                     <Label Content="f(x)=" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,352,0,0" FontWeight="Bold"/>
-                    <TextBox x:Name="Function" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="590" Margin="42,355,0,0"/>
+                    <TextBox x:Name="Function" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="437" Margin="42,355,0,0"/>
                     <Label Content="Max y=" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="122,324,0,0" FontWeight="Bold"/>
                     <TextBox x:Name="Max_y" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Margin="175,327,0,0" TextChanged="Max_y_TextChanged"/>
                     <Label Content="Min x=" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="252,324,0,0" FontWeight="Bold"/>
@@ -70,6 +70,7 @@
                     </StackPanel>
                     <Slider Name="Zoom" HorizontalAlignment="Left" VerticalAlignment="Top" Height="36" Width="153" Margin="479,319,0,0" Maximum="30" Minimum="-30" TickFrequency="10" TickPlacement="BottomRight"
                            ValueChanged="Zoom_ValueChanged" />
+                    <Button x:Name="Print" Content="Print" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Margin="484,354,0,0" Height="24" FontWeight="Bold" Click="Print_Click"/>
                     <!--<Line Name="Xline" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="#FF151313" StrokeThickness="2" X1="0" Y1="0" X2="0" Y2="-622" Canvas.Bottom="152" Canvas.Top="141"  >
                             <Line.RenderTransform>
                                 <TransformGroup>
