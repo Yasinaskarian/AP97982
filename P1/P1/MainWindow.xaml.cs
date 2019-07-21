@@ -553,6 +553,15 @@ namespace P1
             }
             
         }
+
+        private void FPrint_Click(object sender, RoutedEventArgs e)
+        {
+            PrintDialog prnt = new PrintDialog();
+            if (prnt.ShowDialog() == true)
+            {
+                prnt.PrintVisual(Fcanvas, "Printing Canvas");
+            }
+        }
     }
 
 }

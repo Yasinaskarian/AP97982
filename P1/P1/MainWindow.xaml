@@ -115,6 +115,7 @@
                         </Canvas>
                     </Grid>
                     <Label Content="f(x)=sin(x)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="62,22,0,0" FontWeight="Bold"/>
+                    <Button x:Name="FPrint" Content="Print" HorizontalAlignment="Left" Margin="228,27,0,0" VerticalAlignment="Top" Width="190" FontWeight="Bold" Click="FPrint_Click"/>
                 </Grid>
             </TabItem>
             <Canvas Height="6" Width="153"/>
