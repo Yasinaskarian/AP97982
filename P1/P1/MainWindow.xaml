@@ -1,0 +1,246 @@
+﻿<Window x:Class="P1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:P1"
+        mc:Ignorable="d"
+        
+        Title="Math Analyzer" Height="450" Width="800" Background="White" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="" HorizontalAlignment="Left" Height="92" Margin="662,109,0,0" VerticalAlignment="Top" Width="94" Background="#FF741717" RenderTransformOrigin="0.5,0.5">
+
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="49.368"/>
+                    <TranslateTransform X="-3.213" Y="-0.583"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="" HorizontalAlignment="Left" Height="92" Margin="667,163,0,0" VerticalAlignment="Top" Width="94" Background="#FF741717" RenderTransformOrigin="0.5,0.5">
+
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="49.368"/>
+                    <TranslateTransform X="-3.213" Y="-0.583"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Name="l2" Content="" HorizontalAlignment="Left" Height="92" Margin="596,130,0,0" VerticalAlignment="Top" Width="94" Background="#FFF34E4E" RenderTransformOrigin="0.5,0.5">
+
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="{Binding SecAngle, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TranslateTransform X="-3.213" Y="-0.583"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <TabControl HorizontalAlignment="Left" Height="420" VerticalAlignment="Top" Width="652">
+            <TabItem x:Name="Draw_diagram" Header="Draw diagram">
+                <Grid Name="G1" Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="Draw" Content="Draw" HorizontalAlignment="Left" VerticalAlignment="Top" Width="321" Click="Draw_Click"/>
+                    <Button x:Name="Clear" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="316" Margin="326,0,0,0" Click="Clear_Click" />
+                    <Label Content="f(x)=" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,352,0,0" FontWeight="Bold"/>
+                    <TextBox x:Name="Function" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="437" Margin="42,355,0,0"/>
+                    <Label Content="Max y=" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="122,324,0,0" FontWeight="Bold"/>
+                    <TextBox x:Name="Max_y" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Margin="175,327,0,0" TextChanged="Max_y_TextChanged"/>
+                    <Label Content="Min x=" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="252,324,0,0" FontWeight="Bold"/>
+                    <TextBox x:Name="Min_x" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="36" Margin="304,327,0,0" TextChanged="Min_x_TextChanged"/>
+                    <Label Content="Max x=" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="386,324,0,0" FontWeight="Bold"/>
+                    <TextBox x:Name="Max_x" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="34" Margin="440,327,0,0" TextChanged="Max_x_TextChanged"/>
+                    <Label Content="Min y=" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,324,0,0" FontWeight="Bold"/>
+                    <TextBox x:Name="Min_y" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Margin="61,327,0,0" TextChanged="Min_y_TextChanged"/>
+                    <StackPanel Margin="10,27,10,69">
+                        <Canvas Name="MyCanvas" Background="White" Height="291" Width="622" />
+                    </StackPanel>
+                    <Slider Name="Zoom" HorizontalAlignment="Left" VerticalAlignment="Top" Height="36" Width="153" Margin="479,319,0,0" Maximum="30" Minimum="-30" TickFrequency="10" TickPlacement="BottomRight"
+                           ValueChanged="Zoom_ValueChanged" />
+                    <Button x:Name="Print" Content="Print" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Margin="484,354,0,0" Height="24" FontWeight="Bold" Click="Print_Click"/>
+                    <!--<Line Name="Xline" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="#FF151313" StrokeThickness="2" X1="0" Y1="0" X2="0" Y2="-622" Canvas.Bottom="152" Canvas.Top="141"  >
+                            <Line.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="90"/>
+                                </TransformGroup>
+                            </Line.RenderTransform>
+                        </Line>
+                        <Line Name="Yline" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="#FF151313" StrokeThickness="2" X1="0" Y1="0" X2="0" Y2="292"  Canvas.Left="310" Canvas.Right="303" Height="279" Width="3" >
+                            <Line.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="-1"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Line.RenderTransform>
+                        </Line>-->
+
+
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Equations" Header="Equations">
+                <Grid Name="G2" Background="#FFE5E5E5">
+                    <Button x:Name="Calculate" Content="Calculate" HorizontalAlignment="Left" VerticalAlignment="Top" Width="321" Click="Calculate_Click"/>
+                    <Button x:Name="Clear_E" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="316" Margin="326,0,0,0" Click="Clear_E_Click"/>
+                    <TextBox x:Name="Eq" HorizontalAlignment="Left" TextWrapping="Wrap" Width="642" Margin="0,27,0,180"/>
+                    <TextBlock x:Name="Calc_show" HorizontalAlignment="Left" Height="180" Margin="0,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="642" Background="#FFD6C6C6" Foreground="Black" FontWeight="Bold"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Fourier" Header="Fourier Series" Margin="-2,-2,-2,-1">
+                <Grid Name="G3" Background="#FFE5E5E5">
+                    <Button x:Name="Draw_F" Content="Draw" HorizontalAlignment="Left" VerticalAlignment="Top" Width="321" Click="Draw_F_Click"/>
+                    <Button x:Name="Clear_F" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="316" Margin="326,0,0,0" Click="Clear_F_Click"/>
+                    <TextBox x:Name="Ntext" HorizontalAlignment="Left" Height="24" Margin="94,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191"/>
+                    <TextBox x:Name="x0text" HorizontalAlignment="Left" Height="24" Margin="390,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191"/>
+                    <Label Content="n=" HorizontalAlignment="Left" Height="24" Margin="62,59,0,0" VerticalAlignment="Top" Width="32" FontWeight="Bold"/>
+                    <Label Content="x0=" HorizontalAlignment="Left" Height="24" Margin="353,59,0,0" VerticalAlignment="Top" Width="32" FontWeight="Bold"/>
+                    <Grid>
+                        <Canvas Name="Fcanvas" HorizontalAlignment="Left" Height="289" Margin="10,89,0,0" VerticalAlignment="Top" Width="622" Background="White">
+
+                        </Canvas>
+                    </Grid>
+                    <Label Content="f(x)=sin(x)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="62,22,0,0" FontWeight="Bold"/>
+                    <Button x:Name="FPrint" Content="Print" HorizontalAlignment="Left" Margin="228,27,0,0" VerticalAlignment="Top" Width="190" FontWeight="Bold" Click="FPrint_Click"/>
+                </Grid>
+            </TabItem>
+            <Canvas Height="6" Width="153"/>
+        </TabControl>
+        <Button Content="Exit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" RenderTransformOrigin="9.627,17.364" Margin="652,351,0,0" Height="41" Click="Button_Click_1" FontWeight="Bold"/>
+        <Label Content="" HorizontalAlignment="Left" Height="92" Margin="746,72,-46,0" VerticalAlignment="Top" Width="94" Background="#FFD81E1E" RenderTransformOrigin="0.5,0.5">
+
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="49.368"/>
+                    <TranslateTransform X="-3.213" Y="-0.583"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="L1" Content="" HorizontalAlignment="Left" Height="90" Margin="723,142,-23,0" VerticalAlignment="Top" Width="94" Background="#FFB93C3C" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="{Binding SecAngle, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TranslateTransform X="0.109" Y="0.708"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+
+        <Label Content="" HorizontalAlignment="Left" Height="89" Margin="744,203,-44,0" VerticalAlignment="Top" Width="94" Background="#FFD81E1E" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="49.413"/>
+                    <TranslateTransform X="3.228" Y="-0.701"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+
+        <TextBlock x:Name="calander" HorizontalAlignment="Left" Height="28" Margin="652,392,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" Background="#FFF5B7B7" ToolTip="Date today" TextAlignment="Center" FontSize="14" TextDecorations="{x:Null}" FontWeight="Bold" FontFamily="Microsoft PhagsPa"/>
+        <Grid Margin="652,0,0,286" >
+
+            <Ellipse Width="120" Height="120">
+                <Ellipse.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF2B2B2B" Offset="1"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+
+            <Grid Margin="0, 0, 0, 0" Width="115" Height="115">
+                <ItemsControl HorizontalAlignment="Center" ItemsSource="{Binding Path=HourParts}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Grid/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid RenderTransformOrigin="0.5, 0.5"  Margin="0">
+                                <Grid.RenderTransform>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="{Binding Angle}"/>
+                                    </TransformGroup>
+                                </Grid.RenderTransform>
+                                <Line HorizontalAlignment="Center" VerticalAlignment="Stretch" Stroke="White" StrokeThickness="4" X1="0" Y1="0" X2="0" Y2="8" RenderTransformOrigin="0.5,0"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <ItemsControl HorizontalAlignment="Center" ItemsSource="{Binding Path=SecondParts}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Grid/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid RenderTransformOrigin="0.5, 0.5"  Margin="0">
+                                <Grid.RenderTransform>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="{Binding Angle}"/>
+                                    </TransformGroup>
+                                </Grid.RenderTransform>
+                                <Line HorizontalAlignment="Center" VerticalAlignment="Stretch" Stroke="White" StrokeThickness="2" X1="0" Y1="0" X2="0" Y2="5" RenderTransformOrigin="0.5,0"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <Line HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" StrokeThickness="3" X1="0" Y1="0" X2="0" Y2="-35" RenderTransformOrigin="0.5,0" >
+                    <Line.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="{Binding HourAngle, UpdateSourceTrigger=PropertyChanged}"/>
+                        </TransformGroup>
+                    </Line.RenderTransform>
+                </Line>
+
+                <Line HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" StrokeThickness="3" X1="0" Y1="0" X2="0" Y2="-48" RenderTransformOrigin="0.5,0" >
+                    <Line.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="{Binding MinAngle, UpdateSourceTrigger=PropertyChanged}"/>
+                        </TransformGroup>
+                    </Line.RenderTransform>
+                </Line>
+
+                <Line HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="Red" StrokeThickness="3" X1="0" Y1="0" X2="0" Y2="-48" RenderTransformOrigin="0.5,0" >
+                    <Line.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="{Binding SecAngle, UpdateSourceTrigger=PropertyChanged}"/>
+                        </TransformGroup>
+                    </Line.RenderTransform>
+                </Line>
+            </Grid>
+
+            <Ellipse Width="10" Height="10" Stroke="White" Fill="Wheat" />
+        </Grid>
+        <Button x:Name="Login" Content="Login Account" HorizontalAlignment="Left" Height="44" Margin="652,307,0,0" VerticalAlignment="Top" Width="142" FontWeight="Bold" Click="Login_Click"/>
+        <TextBlock x:Name="UserView" HorizontalAlignment="Left" Height="23" Margin="244,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="408" Background="#FFE2B7B7" FontWeight="Bold" FontSize="14" TextAlignment="Center"/>
+        <Slider x:Name="Them" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="132"
+                Margin="652,277,0,0" Minimum="0" Maximum="255" TickFrequency="16 " TickPlacement="BottomRight"
+               IsMoveToPointEnabled="True" ValueChanged="Them_ValueChanged"  />
+
+    </Grid>
+
+</Window>
