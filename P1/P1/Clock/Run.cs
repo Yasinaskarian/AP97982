@@ -17,39 +17,39 @@ namespace P1.Clock
 
         private DispatcherTimer Timer { get; set; } = new DispatcherTimer();
 
-        private double angleHour;
-        private double angleMin;
-        private double angleSec;
+        private double _HourAngle;
+        private double _MinAngle;
+        private double _SecAngle;
 
         
-        public double AngleHour
+        public double HourAngle
         {
-            get { return angleHour; }
+            get { return _HourAngle; }
             set
             {
-                angleHour = value;
-                OnPropertyChanged("AngleHour");
+                _HourAngle = value;
+                OnPropertyChanged("HourAngle");
             }
         }
 
 
-        public double AngleMin
+        public double MinAngle
         {
-            get { return angleMin; }
+            get { return _MinAngle; }
             set
             {
-                angleMin = value;
-                OnPropertyChanged("AngleMin");
+                _MinAngle = value;
+                OnPropertyChanged("MinAngle");
             }
         }
 
-        public double AngleSec
+        public double SecAngle
         {
-            get { return angleSec; }
+            get { return _SecAngle; }
             set
             {
-                angleSec = value;
-                OnPropertyChanged("AngleSec");
+                _SecAngle = value;
+                OnPropertyChanged("SecAngle");
             }
         }
         
@@ -63,8 +63,8 @@ namespace P1.Clock
             {
                 HourParts.Add(new ClockPart()
                 {
-                    Number = (x).ToString(),
-                    Angle = (x) * (360 / 12),
+                    
+                    Angle = (x) * (360 / 12)
                 });
             }
 
@@ -73,8 +73,7 @@ namespace P1.Clock
             {
                 SecondParts.Add(new ClockPart()
                 {
-                    Number = x.ToString(),
-                    Angle = x * (360 / 60),
+                    Angle = x * (360 / 60)
                 });
             }
 
@@ -96,9 +95,9 @@ namespace P1.Clock
         private void Timer_Tick(object sender, EventArgs e)
         {
             DateTime time = DateTime.Now;
-            AngleHour = (time.Hour) * (360 / 12);
-            AngleMin = (time.Minute) * (360 / 60);
-            AngleSec = (time.Second) * (360 / 60);
+            HourAngle = (time.Hour) * (360 / 12);
+            MinAngle = (time.Minute) * (360 / 60);
+            SecAngle = (time.Second) * (360 / 60);
         }
     }
 }

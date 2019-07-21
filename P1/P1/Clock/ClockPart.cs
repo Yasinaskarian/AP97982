@@ -8,7 +8,6 @@ namespace P1.Clock
 {
     class ClockPart
     {
-        public string Number { get; set; }
         public int Angle { get; set; }
     }
 }

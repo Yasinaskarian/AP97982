@@ -80,7 +80,14 @@ namespace A10
             }
             set
             {
-                Rows[row].Data[col] = value;
+                try
+                {
+                    Rows[row].Data[col] = value;
+                }
+                catch
+                {
+                    Rows[row].Data[col] = value;
+                }
             }
         }
 
@@ -99,9 +106,9 @@ namespace A10
                 for (int i = 0; i < m1.RowCount; i++)
                     m3.Rows[i] = m1.Rows[i] + m2.Rows[i];
 
-                return m3;
+                
             }
-            throw new InvalidOperationException();
+            return m3;
         }
         public static Matrix<_Type> operator *(Matrix<_Type> m1, Matrix<_Type> m2)
         {
@@ -117,11 +124,8 @@ namespace A10
                         for (int k = 0; k < m1.ColumnCount; k++)
                             m3.Rows[i].Data[j] += (dynamic)(m1.Rows[i].Data[k])*(m2.Rows[k].Data[j]);
                 }
-                
-
-                return m3;
             }
-            throw new InvalidOperationException();
+            return m3;
         }
 
         /// <summary>

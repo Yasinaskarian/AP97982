@@ -83,8 +83,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Clock\Model.cs" />
-    <Compile Include="Clock\ViewModel.cs" />
+    <Compile Include="Clock\ClockPart.cs" />
+    <Compile Include="Clock\Run.cs" />
     <Compile Include="Equations\Matrix.cs" />
     <Compile Include="Equations\Matrixsolution.cs" />
     <Compile Include="Equations\SquareMatrix.cs" />
